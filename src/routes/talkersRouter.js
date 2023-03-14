@@ -1,6 +1,7 @@
 const { Router } = require('express');
 // const talkerManagerDb = require('../talker.json');
-const { getAllTalker } = require('../readTalker'); 
+const { getAllTalker } = require('../readTalker');
+const tokenGenerate = require('../generateToken'); 
 
 const talkerManagerRouter = Router();
 
@@ -22,6 +23,18 @@ talkerManagerRouter.get('/:id', async (req, res) => {
     });
   }
   return res.status(200).json(talker[0]);
+});
+
+talkerManagerRouter.post('/', async (req, res) => {
+  //  const { email, password } = req.body;
+
+  //  if ([email, password].includes(undefined)) {
+  //    return res.status(401).json({ message: 'Campos ausentes!' });
+  //    }
+
+  const token = tokenGenerate();
+
+  return res.status(200).json({ token });
 });
 
 module.exports = talkerManagerRouter;
