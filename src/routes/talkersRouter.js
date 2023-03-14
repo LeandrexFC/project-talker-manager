@@ -1,7 +1,9 @@
 const { Router } = require('express');
 // const talkerManagerDb = require('../talker.json');
 const { getAllTalker } = require('../readTalker');
-const tokenGenerate = require('../generateToken'); 
+const tokenGenerate = require('../generateToken');
+// const auth = require('../middlewares/auth');
+const loginAuth = require('../middlewares/loginAuth');
 
 const talkerManagerRouter = Router();
 
@@ -25,7 +27,7 @@ talkerManagerRouter.get('/:id', async (req, res) => {
   return res.status(200).json(talker[0]);
 });
 
-talkerManagerRouter.post('/', async (req, res) => {
+talkerManagerRouter.post('/', loginAuth, async (req, res) => {
   //  const { email, password } = req.body;
 
   //  if ([email, password].includes(undefined)) {
