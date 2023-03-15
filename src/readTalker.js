@@ -18,7 +18,8 @@ const writeTalkerManager = async (talker) => {
     // const readDb = await readTalkerManager();
     // readDb.push(talker);
 
-    return await fs.writeFile(join(__dirname, path), JSON.stringify(talker));
+    return await fs.writeFile(join(__dirname, path), JSON
+    .stringify(talker));
   } catch (error) {
     const err = new Error('Error writting file');
     err.statusCode = 500;

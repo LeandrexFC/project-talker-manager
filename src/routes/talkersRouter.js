@@ -21,7 +21,7 @@ talkerManagerRouter.get('/talker', async (req, res) => {
   return res.status(200).json(talkerManager);
 });
 
-talkerManagerRouter.get('/:id', async (req, res) => {
+talkerManagerRouter.get('/talker/:id', async (req, res) => {
   const { id } = req.params;
   const talkerManager = await readTalkerManager();
   const talker = talkerManager.filter((talkers) => talkers.id === +id);

@@ -13,7 +13,7 @@ app.get('/', (_request, response) => {
 });
 
 app.use('/', talkerManagerRouter);
-app.use('/talker/:id', talkerManagerRouter);
+app.use('/:id', talkerManagerRouter);
 app.use('/login', talkerManagerRouter);
 app.use('/', talkerManagerRouter);
 
