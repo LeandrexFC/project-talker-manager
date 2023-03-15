@@ -11,11 +11,22 @@ const readTalkerManager = async () => {
   }
 };
 
-const getAllTalker = async () => {
-  const talkerManage = await readTalkerManager();
-  return talkerManage;
+const writeTalkerManager = async (talker) => {
+  const path = '/talker.json';
+
+  try {
+    // const readDb = await readTalkerManager();
+    // readDb.push(talker);
+
+    return await fs.writeFile(join(__dirname, path), JSON.stringify(talker));
+  } catch (error) {
+    const err = new Error('Error writting file');
+    err.statusCode = 500;
+    throw err;
+  }
 };
 
 module.exports = {
-  getAllTalker,
+  readTalkerManager,
+  writeTalkerManager,
 };

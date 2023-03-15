@@ -12,9 +12,10 @@ app.get('/', (_request, response) => {
   response.status(HTTP_OK_STATUS).send();
 });
 
-app.use('/talker', talkerManagerRouter);
+app.use('/', talkerManagerRouter);
 app.use('/talker/:id', talkerManagerRouter);
 app.use('/login', talkerManagerRouter);
+app.use('/', talkerManagerRouter);
 
 app.listen(PORT, () => {
   console.log('Online');
