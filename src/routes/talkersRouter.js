@@ -9,7 +9,6 @@ const talkerAuthTalk = require('../middlewares/talkerAuthTalk');
 const talkerAuthWatch = require('../middlewares/talkerAuthTalk');
 const talkerAuthRate = require('../middlewares/talkerAuthRate');
 const talkk = require('../middlewares/talkMiddlware');
-const db = require('../talker.json');
 
 const talkerManagerRouter = Router();
 
@@ -41,9 +40,7 @@ talkerManagerRouter.post('/', loginAuth, async (req, res) => {
 talkerManagerRouter.post('/talker', tokenAuth, talkerAuthName, 
 talkerAuthAge, talkk, talkerAuthTalk, talkerAuthWatch, talkerAuthRate, async (req, res) => {
   const newContent = req.body;
-  const { id } = db[4];
-  newContent.id = id + 1;
-  await writeTalkerManager([newContent]);
+  await writeTalkerManager(newContent);
   return res.status(201).json(newContent);
 });
 
