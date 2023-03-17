@@ -14,10 +14,7 @@ const readTalkerManager = async () => {
 const writeTalkerManager = async (talker) => {
   const path = '/talker.json';
   const results = talker;
-  const readDb = await readTalkerManager();
-  const lengthDb = readDb.length;
-    results.id = lengthDb + 1;
-    console.log(results);
+  // const readDb = await readTalkerManager();
      await fs.writeFile(join(__dirname, path), JSON
     .stringify([results]));
 };

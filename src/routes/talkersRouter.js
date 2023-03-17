@@ -40,8 +40,35 @@ talkerManagerRouter.post('/', loginAuth, async (req, res) => {
 talkerManagerRouter.post('/talker', tokenAuth, talkerAuthName, 
 talkerAuthAge, talkk, talkerAuthTalk, talkerAuthWatch, talkerAuthRate, async (req, res) => {
   const newContent = req.body;
+   const contentDb = await readTalkerManager();
+  // const test = {
+
+  // };
+  newContent.id = contentDb.length + 1;
+  // console.log(newContent);
   await writeTalkerManager(newContent);
   return res.status(201).json(newContent);
+});
+
+talkerManagerRouter.put('/:id', tokenAuth, talkerAuthName, 
+talkerAuthAge, talkk, talkerAuthTalk, talkerAuthWatch, talkerAuthRate, async (req, res) => {
+  const { id } = req.params;
+  const { body } = req;
+  const contentDb = await readTalkerManager();
+  const beChanged = contentDb.find((content) => content.id === +id);
+
+  if (!beChanged) {
+    return res.status(404).json({ message: 'Pessoa palestrante não encontrada' });
+  }
+
+    beChanged.name = body.name;
+    beChanged.age = body.age;
+    beChanged.talk.watchedAt = body.talk.watchedAt;
+    beChanged.talk.rate = body.talk.rate;
+
+   await writeTalkerManager(beChanged);
+
+   return res.status(200).json(beChanged);
 });
 
 module.exports = talkerManagerRouter;

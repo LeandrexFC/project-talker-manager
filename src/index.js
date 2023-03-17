@@ -16,6 +16,7 @@ app.use('/', talkerManagerRouter);
 app.use('/:id', talkerManagerRouter);
 app.use('/login', talkerManagerRouter);
 app.use('/', talkerManagerRouter);
+app.use('/talker', talkerManagerRouter);
 
 app.listen(PORT, () => {
   console.log('Online');
