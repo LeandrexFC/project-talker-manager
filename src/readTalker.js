@@ -13,10 +13,8 @@ const readTalkerManager = async () => {
 
 const writeTalkerManager = async (talker) => {
   const path = '/talker.json';
-  const results = talker;
-  // const readDb = await readTalkerManager();
      await fs.writeFile(join(__dirname, path), JSON
-    .stringify([results]));
+    .stringify([talker]));
 };
 
 module.exports = {

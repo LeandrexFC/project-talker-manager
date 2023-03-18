@@ -41,11 +41,7 @@ talkerManagerRouter.post('/talker', tokenAuth, talkerAuthName,
 talkerAuthAge, talkk, talkerAuthTalk, talkerAuthWatch, talkerAuthRate, async (req, res) => {
   const newContent = req.body;
    const contentDb = await readTalkerManager();
-  // const test = {
-
-  // };
-  newContent.id = contentDb.length + 1;
-  // console.log(newContent);
+    newContent.id = contentDb.length + 1;
   await writeTalkerManager(newContent);
   return res.status(201).json(newContent);
 });
@@ -69,6 +65,15 @@ talkerAuthAge, talkk, talkerAuthTalk, talkerAuthWatch, talkerAuthRate, async (re
    await writeTalkerManager(beChanged);
 
    return res.status(200).json(beChanged);
+});
+
+talkerManagerRouter.delete('/:id', tokenAuth, async (req, res) => {
+  const { id } = req.params;
+  const contentDb = await readTalkerManager();
+  const newContentDb = contentDb
+    .filter(({ id: idDb }) => idDb !== +id);
+  await writeTalkerManager(newContentDb);
+  res.status(204).end();
 });
 
 module.exports = talkerManagerRouter;
