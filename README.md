@@ -1,13 +1,16 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+<h1>Talker Manager</h1>
+The Talker Manager project involves building an application that allows users to perform various operations on speaker information. Users can create, view, search, edit, and delete speaker records. The project requires the development of an API with CRUD functionality for talkers and the implementation of endpoints that read and write data to a file using the fs module.
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+<h2>Project Overview</h2>
+The main objectives of the Talker Manager project are as follows:<br>
+
+Create an API to manage speaker records.<br>
+Implement CRUD functionality for talkers.<br>
+Develop endpoints that read and write data to a file.<br>
+Enable users to perform operations like creating, viewing, searching, editing, and deleting speaker information.<br>
+
+<h3>Contributors</h3>
+
+I created the src folder and all its contents.<br>
+Trybe - Provided the remaining files and resources for the project.<br>
